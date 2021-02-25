@@ -22,12 +22,12 @@ echo $OUTPUT->header();
 echo '<link rel="stylesheet" href="main.css">';
 echo '<div class="videolecture">';
 echo $OUTPUT->heading(format_string($videolecture->name), 2);
-echo vl_video($context);
+echo vl_video($context, $videolecture);
 echo vl_desc($context, $videolecture);
 echo '</div>';
 echo $OUTPUT->footer();
 
-function vl_video($context)
+function vl_video($context, $videolecture)
 {
     $fs = get_file_storage();
     $files = $fs->get_area_files($context->id, 'mod_videolecture', 'attachment', false, '', false);
@@ -43,15 +43,34 @@ function vl_video($context)
             $file->get_filename()
         );
 
+        $vlidstr = 'videolecture'. $videolecture->id;
+
         $html_str = '
             <div class="videolecture__video">
                 <script type="text/javascript">
-                    document.addEventListener("DOMContentLoaded", function() { 
-                        let video = document.querySelector(".videolecture__video .video");
-                        video.addEventListener("contextmenu", (e) => { e.preventDefault(); });
-                    });
+//                    $(document).ready(function() {
+//                        $(".videolecture__video .video").contextmenu(function(e) {
+//                            e.preventDefault()
+//                        });
+//                    });
+                    
+                    document.onreadystatechange = function()  {
+                        if (document.readyState == "interactive") {
+                            document.getElementById("'.$vlidstr.'").oncontextmenu = function(e) {
+                                e.preventDefault();
+                                e.stopPropagation(); 
+                                e.stopImmediatePropagation();
+                                return false;
+                            }
+                        }
+                    }
+                     
+//                    document.addEventListener("DOMContentLoaded", function() { 
+//                        let video = document.querySelector(".videolecture__video .video");
+//                        video.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+//                    });
                 </script>
-                <video class="video" controls="controls" controlslist="nodownload"> 
+                <video id="'. $vlidstr .'" class="video" controls="controls" controlslist="nodownload"> 
                     <source src="' . $url . '" /> 
                 </video>
             </div>
