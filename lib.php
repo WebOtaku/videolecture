@@ -98,20 +98,17 @@ function videolecture_delete_instance($id) {
     }
 
     $fs = get_file_storage();
-
     $fs->delete_area_files($context->id);
 
     \core_completion\api::update_completion_date_event($cm->id, 'videolecture', $videolecture->id, null);
 
-    if (!$DB->delete_records("videolecture", array("id" => $videolecture->id))) {
-        return false;
-    }
+    $DB->delete_records("videolecture", array("id" => $videolecture->id));
 
     return true;
 }
 
 /**
- * Serves the userportfolio attachments. Implements needed access control ;-)
+ * Serves the videolectures attachments. Implements needed access control
  *
  * @param object $course
  * @param object $cm

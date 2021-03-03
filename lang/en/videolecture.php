@@ -1,6 +1,6 @@
 <?php
 $string['pluginname'] = 'Video lecture';
-$string['pluginadministration'] = 'Video lecture administration';
+$string['pluginadministration'] = '"Video lecture" administration';
 
 $string['modulename'] = 'Video lecture';
 $string['modulenameplural'] = 'Video lectures';

@@ -1,16 +1,16 @@
 <?php
-$string['pluginname'] = 'Видео лекция';
-$string['pluginadministration'] = 'Администрирование Видео лекция';
+$string['pluginname'] = 'Видеолекция';
+$string['pluginadministration'] = 'Администрирование "Видеолекция"';
 
-$string['modulename'] = 'Видео лекция';
-$string['modulenameplural'] = 'Видео лекции';
+$string['modulename'] = 'Видеолекция';
+$string['modulenameplural'] = 'Видеолекции';
 
-$string['videolecture'] = 'Видео лекция';
-$string['videolecture:addinstance'] = 'Добавить новый модуль "Видео лекция"';
-$string['videolecture:view'] = 'Показывать "Видео лекция"';
+$string['videolecture'] = 'Видеолекция';
+$string['videolecture:addinstance'] = 'Добавить новый модуль "Видеолекция"';
+$string['videolecture:view'] = 'Показывать "Видеолекция"';
 
 $string['userpreferences'] = 'Пользовательские настройки';
-$string['videolecturename'] = 'Видео лекция';
+$string['videolecturename'] = 'Видеолекция';
 
 $string['modulename_help'] = 'Модуль для загрузки и размещения видео лекции в курсе.';
 

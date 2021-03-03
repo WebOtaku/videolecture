@@ -47,16 +47,10 @@ function vl_video($context, $videolecture)
 
         $html_str = '
             <div class="videolecture__video">
-                <script type="text/javascript">
-//                    $(document).ready(function() {
-//                        $(".videolecture__video .video").contextmenu(function(e) {
-//                            e.preventDefault()
-//                        });
-//                    });
-                    
+               <script type="text/javascript">
                     document.onreadystatechange = function()  {
                         if (document.readyState == "interactive") {
-                            document.getElementById("'.$vlidstr.'").oncontextmenu = function(e) {
+                            document.oncontextmenu = function(e) {
                                 e.preventDefault();
                                 e.stopPropagation(); 
                                 e.stopImmediatePropagation();
@@ -64,11 +58,6 @@ function vl_video($context, $videolecture)
                             }
                         }
                     }
-                     
-//                    document.addEventListener("DOMContentLoaded", function() { 
-//                        let video = document.querySelector(".videolecture__video .video");
-//                        video.addEventListener("contextmenu", (e) => { e.preventDefault(); });
-//                    });
                 </script>
                 <video id="'. $vlidstr .'" class="video" controls="controls" controlslist="nodownload"> 
                     <source src="' . $url . '" /> 
