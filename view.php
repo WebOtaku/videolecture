@@ -24,6 +24,10 @@ echo '<div class="videolecture">';
 echo $OUTPUT->heading(format_string($videolecture->name), 2);
 echo vl_video($context, $videolecture);
 echo vl_desc($context, $videolecture);
+if (!isset($options['printlastmodified']) || !empty($options['printlastmodified'])) {
+    $strlastmodified = get_string("lastmodified");
+    echo html_writer::div("$strlastmodified: " . userdate($videolecture->timemodified), 'modified');
+}
 echo '</div>';
 echo $OUTPUT->footer();
 

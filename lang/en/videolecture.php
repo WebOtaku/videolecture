@@ -28,3 +28,5 @@ $string['no'] = 'No';
 $string['unknown'] = 'Unknown';
 
 $string['videomissing'] = 'Video missing';
+
+$string['page-mod-videolecture-x'] = 'Any "Video lecture" module page';
